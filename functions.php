@@ -205,18 +205,6 @@ return array_slice( $categories, 0, $number );
 		'title' => 'Artwork Detail',
 		'fields' => array (
 			array (
-				'key' => 'field_5989a3835b764',
-				'label' => 'Medium',
-				'name' => 'medium',
-				'type' => 'taxonomy',
-				'taxonomy' => 'category',
-				'field_type' => 'checkbox',
-				'allow_null' => 0,
-				'load_save_terms' => 1,
-				'return_format' => 'id',
-				'multiple' => 0,
-			),
-			array (
 				'key' => 'field_5989a3c65b765',
 				'label' => 'Price',
 				'name' => 'price',
@@ -261,6 +249,7 @@ return array_slice( $categories, 0, $number );
 		),
 		'menu_order' => 0,
 	));
+
 
   /* CTA FEILDS */
 	register_field_group(array (
@@ -354,14 +343,14 @@ return array_slice( $categories, 0, $number );
 				'formatting' => 'br',
 			),
 		),
-		'location' => array (
+    'location' => array (
 			array (
 				array (
 					'param' => 'post_type',
 					'operator' => '==',
 					'value' => 'page',
 					'order_no' => 0,
-					'group_no' => 0,
+					'group_no' => 1,
 				),
 			),
 		),
@@ -543,3 +532,66 @@ if(function_exists("register_field_group"))
 
 
 /* EXHIBITION MAP & APPOINTMENT FIELD */
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_exhibition-map-appointment-field',
+		'title' => 'Exhibition Map & Appointment Field',
+		'fields' => array (
+			array (
+				'key' => 'field_598d694351be7',
+				'label' => 'Location',
+				'name' => 'location',
+				'type' => 'text',
+				'instructions' => 'Please add your location in the form of an iframe',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_598d6b4151be8',
+				'label' => 'Appointment Heading',
+				'name' => 'appointment_heading',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_598d6b4a51be9',
+				'label' => 'Appointment Description',
+				'name' => 'appointment_description',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page',
+					'operator' => '==',
+					'value' => '7',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => -1,
+	));
+}

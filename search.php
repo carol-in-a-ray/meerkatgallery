@@ -13,15 +13,15 @@
 <div class="wrapper-bg">
   <div class="wrapper">
 
-    <p>You searched for "<?php echo esc_html( get_search_query( false ) ); ?>".</p>
+    <main class="search-page">
 
-
-    <main class="search">
+      <h2>Your Search Results</h2>
+      <p>You searched for "<?php echo esc_html( get_search_query( false ) ); ?>".</p>
 
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
         <p>We found the following posts that match your query:</p>
-        <div class="searched-post">
+        <div class="the-searched-post">
       		<div class="searched-thumbnail">
       			<a href="<?php the_permalink(); ?>">
       				<?php the_post_thumbnail( 'thumbnail' ); ?>
@@ -34,9 +34,11 @@
               <div class="more-button"><a href="<?php the_permalink(); ?>">Learn More</a></div>
       			</div><!-- .searched-content" -->
       		</div><!-- .thumbnail-overlay -->
-        </div><!-- .searched-post -->
+        </div><!-- .the-searched-post -->
 
-      <?php endwhile;
+      <?php
+      $GLOBALS[ 'search_post_id' ] = get_the_ID();
+  endwhile;
 
 
       the_posts_pagination( array(
