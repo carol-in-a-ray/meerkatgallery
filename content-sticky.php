@@ -11,8 +11,8 @@
 <?php
 /* display sticky posts */
 $sticky_args = array(
-	'posts_per_page' => 4, //not sure about this
-	'post__in'  => get_option( 'sticky_posts' ),
+	'showposts'						=> 4, //not sure about this
+	'post__in'  					=> get_option( 'sticky_posts' ),
 	'ignore_sticky_posts' => 1 //not sure about this
 );
 $sticky_query = new WP_Query( $sticky_args );

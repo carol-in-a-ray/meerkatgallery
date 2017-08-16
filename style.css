@@ -1213,7 +1213,7 @@ M.6 Front Page
 
 main.front-page {
 text-align: center;
-margin-bottom: 4rem;
+margin-bottom: 3rem;
 }
 
 main.front-page p {
@@ -1284,10 +1284,6 @@ main.contact-page {
 }
 
 
-
-
-
-
 /*--------------------------------------------------------------
 M.8 Exhibition Page
 --------------------------------------------------------------*/
@@ -1305,6 +1301,7 @@ main.exhibition-page {
 	border-radius: 50%;
 }
 
+
 /* FULL WIDTH MAP STARTS HERE */
 .location {
 	position: relative;
@@ -1320,6 +1317,7 @@ main.exhibition-page {
     height: 100% !important;
 }
 /* FULL WIDTH MAP ENDS HERE */
+
 
 /* APPOINTMENT FEILD STARTS HERE */
 .appointment {
@@ -1347,6 +1345,55 @@ M.9 Gallery, Category Page
 /*--------------------------------------------------------------
 M.11 Single Post
 --------------------------------------------------------------*/
+main.single-post h1,
+.pagination {
+	text-align: center;
+}
+
+.artwork-details {
+	margin-bottom: 1.5rem;
+}
+
+.artwork-details p {
+	margin-bottom: 0;
+}
+
+.pagination {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.pagination > div {
+	background-color: #000;
+	width: 28%;
+	transition: all .5s ease-in-out;
+}
+
+.pagination .back-home {
+	background-color: #F4851F;
+	width: 38%;
+}
+
+.pagination > div:hover {
+	opacity: .7;
+}
+
+.pagination a {
+	color: #FFF;
+	padding: .8rem;
+	font-size: 1rem;
+}
+
+
+
+/*--------------------------------------------------------------
+M.8 Search Page
+--------------------------------------------------------------*/
+main.search-page {
+	text-align: center;
+}
+
 
 /*--------------------------------------------------------------
 M.11 Template Parts
@@ -1372,9 +1419,11 @@ M.11 Template Parts
 	padding-bottom: 2rem;
 }
 
+/* SEARCH POSTS STARTS HERE */
 .the-sticky-post,
 .the-recent-post,
-.the-random-post {
+.the-random-post,
+.the-searched-post {
 	display: flex;
 	flex-direction: row;
 	margin-bottom: 1rem;
@@ -1383,12 +1432,14 @@ M.11 Template Parts
 
 .the-sticky-post h3,
 .the-recent-post h3,
-.the-random-post h3 {
+.the-random-post h3,
+.the-searched-post h3 {
 	margin-bottom: .3rem;
 }
 
 .post-thumbnail,
-.random-thumbnail {
+.random-thumbnail,
+.searched-thumbnail {
 	width: 40%;
 }
 
@@ -1399,20 +1450,23 @@ M.11 Template Parts
 
 .sticky-content,
 .recent-content,
-.random-content {
+.random-content,
+.searched-content {
 	padding-left: 1rem;
+	text-align: left;
 }
 
 .sticky-content .more-button a,
 .recent-content .more-button a,
-.random-content .more-button a {
+.random-content .more-button a,
+.searched-content .more-button a {
 	position: absolute;
 	bottom: 15%;
 }
-
 /* STICKY POSTS ENDS HERE */
 /* RECENT POSTS ENDS HERE */
 /* RANDOM CAT FOR SEARCH ENDS HERE */
+/* SEARCH POSTS ENDS HERE */
 
 
 /* CTA LINKS STARTS HERE */
