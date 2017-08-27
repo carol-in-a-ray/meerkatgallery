@@ -20,7 +20,7 @@ foreach( $categories as $category ) {
     $cat_id = $category->term_id;
     ?>
 
-    <div class="category">
+    <div class="cat-link">
 
 			<div class="cat-thumbnail">
 				<a href="<?php echo $cat_link ?>">
