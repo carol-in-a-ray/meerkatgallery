@@ -49,13 +49,10 @@
 
 
       else : ?>
-
-
         <p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.'); ?></p>
         <div class="search-search">
           <?php get_search_form(); ?>
         </div>
-
       <?php endif; ?>
 
 
@@ -64,19 +61,22 @@
 
 
     </div><!-- .wrapper - close for full black BG -->
-    <aside class="sticky-posts-bg">
+    <aside class="cat-list">
       <div class="wrapper">
-        <h2>Featured Artworks</h2>
-        <div class="sticky-posts">
-          <?php get_template_part('content', 'sticky'); ?>
-        </div><!-- .sticky-posts -->
+        <h2>Browse by Media</h2>
+        <div class="cat-list-flex">
+        <?php get_template_part('content', 'cat-list');  ?>
+        </div><!-- .cat-list-flex -->
       </div><!-- .wrapper -->
     </aside>
     <div class="wrapper">
 
 
-    <aside class="random-cat-wrapper">
-      <?php get_template_part('content', 'random-cat'); ?>
+    <aside class="sticky-posts-bg-none">
+        <h2>Featured Artworks</h2>
+        <div class="sticky-posts">
+          <?php get_template_part('content', 'sticky'); ?>
+        </div><!-- .sticky-posts -->
     </aside>
 
 

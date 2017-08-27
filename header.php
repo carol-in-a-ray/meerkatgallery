@@ -50,12 +50,13 @@
   			<nav class="main-nav">
   				<?php wp_nav_menu( $defaults ); ?>
   			</nav>
+
+        <div class="search-bar">
+          <?php get_search_form(); ?>
+        </div>
+
   		</div><!-- .navigation-top-->
 
-
-      <div class="search-bar">
-        <?php get_search_form(); ?>
-      </div>
 
 
     </div><!-- .nav-top-bar -->
