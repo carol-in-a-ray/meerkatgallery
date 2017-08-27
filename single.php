@@ -20,26 +20,45 @@
 
       <article>
         <h1><?php the_title(); ?></h1>
-        <?php if( get_the_post_thumbnail() ) : ?>
-          <div class="post-featured-img">
-            <?php the_post_thumbnail('large'); ?>
-          </div>
-        <?php endif; ?>
-        <p><?php the_content(); ?></p>
+
+        <?php //here we do a conditional statement to check the size of the image. The div receives display flex if portrait ?>
+        <?php if( get_the_post_thumbnail() ) :
+          $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "large" );
+          $image_width = $image_data[1];
+          $image_height = $image_data[2];
+
+          if ($image_width > $image_height) { ?>
+            <!-- LANDSCAPE -->
+            <div class="post-landscape">
+          <?php } else { ?>
+
+            <!-- PORTRAIT OR SQUARE -->
+            <div class="post-portrait">
+          <?php } endif; ?>
+
+
+            <div class="post-featured-img zoom" id='ex2'>
+              <?php the_post_thumbnail('large'); ?>
+            </div>
+
+            <div class="single-content">
+              <p><?php the_content(); ?></p>
+              <div class="artwork-details">
+                <p class="categories"><strong>Media: </strong><?php the_category(', '); ?></p>
+                <p><strong>Status: </strong><?php the_field('status'); ?></p>
+                <p><strong>Price:</strong> N$<?php the_field('price'); ?></p>
+              </div><!-- .artwork-details -->
+            </div><!-- .single-content -->
+
+          </div><!-- .post-landscape/portrait -->
+
+
       </article>
 
 
-      <div class="artwork-details">
-        <p class="categories"><strong>Media: </strong><?php the_category(', '); ?></p>
-        <p><strong>Status: </strong><?php the_field('status'); ?></p>
-        <p><strong>Price:</strong> N$<?php the_field('price'); ?></p>
-      </div><!-- .artwork-details -->
-
 
       <div class="pagination">
-        <div class="previous"><?php if ( previous_post_link('%link', '&laquo;&laquo; Previous post') ); ?></div>
-        <div class="back-home"><a href="<?php bloginfo('url'); ?>/blog">Back to the Homepage</a></div>
-        <div class="next"><?php if ( next_post_link('%link', 'Next post &raquo;&raquo;') ); ?></div>
+        <?php get_template_part('content', 'pagination'); ?>
       </div><!-- .pagination -->
 
 

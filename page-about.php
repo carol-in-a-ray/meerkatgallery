@@ -29,6 +29,7 @@
 
     <aside class="artist-inspiration">
       <h2>My Inspiration</h2>
+      <aside class="artist-inspiration-flex">
       <?php get_template_part('content', 'artist-inspiration'); ?>
     </aside>
 

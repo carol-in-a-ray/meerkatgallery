@@ -24,50 +24,25 @@ Use it to make something cool, have fun, and share what you've learned with othe
 5.0 Forms
 6.0 Comments
 7.0 Lists
-8.0 Links
-9.0 Images
+8.0 Images
 
-MOBILE LAYOUT
-M.1 General Layout
-M.2 Typography
-M.3 Navigation
-M.4 Header
-M.5 Footer
-M.6 Front Page
-M.7 About Page
-M.8 Contact Page
-M.9 Blog Page, Category, Sinle Post
-M.10 Author Page
-M.11 404 Page
-M.12 Template Parts
-
-TABLET LAYOUT
-T.1 Tablet General Layout
-T.2 Typography
-T.3 Navigation
-T.4 Header
-T.5 Footer
-T.6 Front Page
-T.7 About Page
-T.8 Contact Page
-T.9 Blog Page, Category, Single Post
-T.10 Author Page
-T.11 404 Page
-T.12 Template Parts
-
-DESKTOP LAYOUT
-D.1 Desktop General Layout
-D.2 Typography
-D.3 Navigation
-D.4 Header
-D.5 Footer
-D.6 Front Page
-D.7 About Page
-D.8 Contact Page
-D.9 Blog Page, Category, Sinle Post
-D.10 Author Page
-D.11 404 Page
-D.12 Template Parts
+Responsive Styles
+R.1 General Layout
+R.2 Typography
+R.3 Links
+R.4 Navigation
+R.5 Header
+R.6 Footer
+R.7 Front Page
+R.8 Exhibition Page
+R.9 About The Artist
+R.10 Contact Page
+R.11 Gallery, Category Page
+R.12 Single Post
+R.13 Template Parts
+	R.13.1 Sticky Posts, Recent Posts, Searched Posts, Random Cat Posts
+	R.13.2 CTA Links
+	R.13.3 Category List
 
 
 --------------------------------------------------------------*/
@@ -806,41 +781,9 @@ dd {
 	margin: 0 1.5em 1.5em;
 }
 
-/*--------------------------------------------------------------
-8.0 Links
---------------------------------------------------------------*/
-
-a {
-	color: #000;
-	text-decoration: none;
-	transition: all .3s ease-in-out;
-}
-
-a:hover {
-	color: #F4851F;
-	transition: all .5s ease-in-out;
-}
-
-/* MORE BUTTON */
-.more-button a {
-	background-color: #000;
-	color: #FFF;
-	text-transform: uppercase;
-	padding: .5rem;
-	transition: all .5s ease-in-out;
-}
-
-.sticky-content .more-button a {
-	background-color: #F4851F;
-}
-
-.more-button a:hover {
-	opacity: .7;
-}
-
 
 /*--------------------------------------------------------------
-9.0 Images
+8.0 Images
 --------------------------------------------------------------*/
 
 .post-thumbnail a {
@@ -862,10 +805,10 @@ a:hover {
 
 
 
-/*********************** HERE STARTS MOBILE LAYOUT ***********************/
+/*********************** HERE STARTS RESPONSIVE LAYOUT ***********************/
 
 /*--------------------------------------------------------------
-M.1 General Layout
+R.1 General Layout
 --------------------------------------------------------------*/
 
 .wrapper-bg {
@@ -876,7 +819,8 @@ M.1 General Layout
 .wrapper {
 	margin: 0 auto;
 	padding: 4rem 0;
-	max-width: 90%;
+	width: 90%;
+	max-width: 960px;
 }
 
 .wrapper:after {
@@ -887,7 +831,7 @@ M.1 General Layout
 
 
 /*--------------------------------------------------------------
-M.2 Typography
+R.2 Typography
 --------------------------------------------------------------*/
 
 body,
@@ -897,6 +841,7 @@ select,
 textarea {
 	font-size: 1.125rem;
 	line-height: 1.66;
+	text-align: center;
 }
 
 h1 {
@@ -933,51 +878,49 @@ h6 {
 
 
 /*--------------------------------------------------------------
-M.3 Search Form
+R.3 Links
 --------------------------------------------------------------*/
 
-.search-bar {
-	z-index: 2;
-  position: absolute;
-	width: 60%;
-	height: ;
-	right: 2%;
-	top: 20%;
+a {
+	color: #000;
+	text-decoration: none;
+	transition: all .3s ease-in-out;
 }
 
-.search-form {
-	position: relative;
-}
-
-.search-form input {
-	height: 35px;
-}
-
-.search-form button {
-	background-color: #555;
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 55px;
-	height: 35px;
-	padding: 0;
-	border-radius: 0 3px 3px 0;
+a:hover {
+	color: #F4851F;
 	transition: all .5s ease-in-out;
 }
 
-.search-form button:hover {
+/* MORE BUTTON */
+.more-button a {
+	background-color: #000;
+	color: #FFF;
+	text-transform: uppercase;
+	padding: .5rem;
+	transition: all .5s ease-in-out;
+}
+
+.sticky-content .more-button a {
 	background-color: #F4851F;
 }
 
-.search-form button i {
-	position: absolute;
-	top: 25%;
-	right:30%;
+.more-button a:hover {
+	opacity: .7;
 }
+
+/*********************** HERE STARTS TABLET LINKS ***********************/
+@media screen and ( min-width: 768px ) {
+	.more-button a {
+		padding: 1rem;
+	}
+}
+/*********************** HERE ENDS TABLET LINKS ***********************/
+
 
 
 /*--------------------------------------------------------------
-M.3 Mobile Navigation
+R.4 Navigation
 --------------------------------------------------------------*/
 
 /* black nav bar style (stick to bottom of page) */
@@ -995,6 +938,8 @@ M.3 Mobile Navigation
 	font-size: 1.25rem; /* 20px */
 	position: relative;
 	display: flex;
+	max-width: 940px;
+	margin: 0 auto;
 }
 
 /* The Nav ul - container for the nav li */
@@ -1101,12 +1046,87 @@ input[data-function='swipe']:checked~.main-nav ul {
 }
 
 
+/*********************** HERE STARTS TABLET NAV ***********************/
+@media screen and ( min-width: 768px ) {
+
+	.mob-nav-toggle {
+		display: none !important;
+	}
+
+	.navigation-top {
+		display: block;
+		font-size: 1rem;
+	}
+
+	.navigation-top ul {
+		width: 100%;
+		transform: none;
+		position: relative;
+		text-align: left;
+		padding-left: .75rem;
+	}
+
+	.main-navigation li {
+		border: 0;
+		display: inline-block;
+		position: relative;
+	}
+}
+/*********************** HERE ENDS TABLET NAV ***********************/
+
+
+
+/* Search Bar */
+.search-bar {
+	z-index: 2;
+  position: absolute;
+	width: 60%;
+	max-width: 230px;
+	height: ;
+	right: 2%;
+	top: 20%;
+}
+
+.search-form {
+	position: relative;
+}
+
+.search-form input {
+	text-align: left;
+	height: 35px;
+}
+
+.search-form button {
+	background-color: #555;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 45px;
+	height: 35px;
+	padding: 0;
+	border-radius: 0 3px 3px 0;
+	transition: all .5s ease-in-out;
+}
+
+.search-form button:hover {
+	background-color: #F4851F;
+}
+
+.search-form button i {
+	position: absolute;
+	top: 25%;
+	right:30%;
+}
+
+
+
 /*--------------------------------------------------------------
-M.4 Header
+R.5 Header
 --------------------------------------------------------------*/
 
 .site-header {
  height: 100vh;
+ text-align: left;
 }
 
 /* Custom Header Image */
@@ -1123,13 +1143,50 @@ M.4 Header
 }
 
 
+/*********************** HERE STARTS TABLET HEADER ***********************/
+@media screen and ( min-width: 768px ) {
+
+	.site-header {
+		height: 45vh;
+	}
+
+	.custom-header-media img {
+		height: 50vh;
+	}
+}
+/*********************** HERE ENDS TABLET HEADER ***********************/
+
+
+/*********************** HERE STARTS DESKTOP HEADER ***********************/
+@media screen and ( min-width: 960px ) {
+
+	.site-header {
+		height: 40vh;
+	}
+
+	.custom-header-media img {
+		height: 43vh;
+	}
+}
+/*********************** HERE ENDS DESKTOP HEADER ***********************/
+
+
+/*********************** HERE STARTS LARGE HEADER ***********************/
+@media screen and ( min-width: 1500px ) {
+
+	.custom-header-media img {
+		height: 40vh;
+	}
+}
+/*********************** HERE ENDS LARGE HEADER ***********************/
+
+
 /*--------------------------------------------------------------
-M.5 Footer
+R.6 Footer
 --------------------------------------------------------------*/
 
 footer {
 	color: #fff;
-	text-align: center;
 }
 
 .site-footer {
@@ -1140,8 +1197,6 @@ footer {
 /* Footer Nav */
 .footer-nav {
 	font-size: 1rem;
-	position: relative;
-	text-align: center;
 }
 
 #menu-secondary-menu {
@@ -1172,26 +1227,54 @@ footer {
 }
 
 
-/* Facebook Icon */
-.facebook {
-	width: 40px;
-	margin: 0 auto;
-	padding-bottom: 2rem;
+/*********************** HERE STARTS TABLET FOOTER NAV ***********************/
+@media screen and ( min-width: 768px ) {
+
+	#menu-secondary-menu li {
+		display: inline-block;
+	}
 }
+/*********************** HERE ENDS TABLET FOOTER NAV ***********************/
 
 
 /* Footer Logo */
 .footer-logo {
 	width: 60px;
 	margin: 0 auto;
+	padding-bottom: 3rem;
 }
+
+
+/* Facebook Icon */
+.facebook {
+	width: 40px;
+	margin: 0 auto;
+}
+
+/*********************** HERE STARTS DESKTOP SOCIAL FOOTER ***********************/
+@media screen and ( min-width: 960px ) {
+
+	.facebook {
+		transition: all .5s ease-in-out;
+	}
+
+	.footer-logo {
+		transition: all .5s ease-in-out;
+	}
+
+	.facebook:hover,
+	.footer-logo:hover {
+		opacity: .7;
+	}
+}
+/*********************** HERE ENDS DESKTOP SOCIAL FOOTER ***********************/
 
 
 /* Site info */
 .site-info {
 	font-size: 0.875rem;
 	line-height: 1rem;
-	padding: 3em 0 10em;
+	padding: .75rem 0 10rem;
 }
 
 .site-info a {
@@ -1207,89 +1290,36 @@ footer {
 	margin-top: 1rem;
 }
 
+
 /*--------------------------------------------------------------
-M.6 Front Page
+R.7 Front Page
 --------------------------------------------------------------*/
 
 main.front-page {
-text-align: center;
-margin-bottom: 3rem;
-}
-
-main.front-page p {
-  columns: 350px 2;
-	column-gap: 2rem;
-	text-align: left;
-}
-
-main.front-page p:nth-child(2) {
-	columns: initial;
-	text-align: center;
-}
-
-
-
-/*--------------------------------------------------------------
-M.7 About Page
---------------------------------------------------------------*/
-main.about-page,
-aside.artist-inspiration {
-	text-align: center;
-}
-
-.about-page h1 {
-	margin-bottom: 0;
-}
-
-.about-page h2 {
-	margin-bottom: 2rem;
-}
-
-.about-page p img {
-	width: 60%;
-	border-radius: 50%;
-}
-
-
-/* Artist Inspiration */
-.artist-inspiration > div {
-	margin-bottom: 2rem;
-}
-
-.artist-inspiration h2 {
-	margin-bottom: 2rem;
-}
-
-.insp-thumbnail {
-	width: 50%;
-	margin: 0 auto .5rem;
-}
-
-.insp-thumbnail img {
-	border-radius: 50%;
-}
-
-.insp-info {
-	width: 70%;
+	margin-bottom: 3rem;
+	max-width: 475px;
 	margin: 0 auto;
 }
 
 
-/*--------------------------------------------------------------
-M.8 Contact Page
---------------------------------------------------------------*/
+/*********************** HERE STARTS DESKTOP FRONT PAGE ***********************/
+@media screen and ( min-width: 960px ) {
 
-main.contact-page {
-	text-align: center;
+	main.front-page {
+		max-width: 550px;
+	}
 }
+/*********************** HERE ENDS DESKTOP FRONT PAGE ***********************/
+
 
 
 /*--------------------------------------------------------------
-M.8 Exhibition Page
+R.8 Exhibition Page
 --------------------------------------------------------------*/
 
 main.exhibition-page {
-	text-align: center;
+	max-width: 575px;
+	margin: 0 auto;
 }
 
 .exhibition-page h1 {
@@ -1298,6 +1328,7 @@ main.exhibition-page {
 
 .exhibition-page p img {
 	width: 60%;
+	max-width: 200px;
 	border-radius: 50%;
 }
 
@@ -1321,7 +1352,8 @@ main.exhibition-page {
 
 /* APPOINTMENT FEILD STARTS HERE */
 .appointment {
-	text-align: center;
+	max-width: 575px;
+	margin: 0 auto;
 }
 
 .appointment p {
@@ -1336,47 +1368,235 @@ main.exhibition-page {
 /* APPOINTMENT FEILD ENDS HERE */
 
 
-/*--------------------------------------------------------------
-M.9 Gallery, Category Page
---------------------------------------------------------------*/
-
-
 
 /*--------------------------------------------------------------
-M.11 Single Post
+R.9 About The Artist
 --------------------------------------------------------------*/
-main.single-post h1,
-.pagination {
-	text-align: center;
+main.about-page {
+	max-width: 575px;
+	margin: 0 auto;
+}
+
+.about-page h1 {
+	margin-bottom: 0;
+}
+
+.about-page h2 {
+	margin-bottom: 2rem;
+}
+
+.about-page p img {
+	width: 60%;
+	border-radius: 50%;
+	max-width: 200px;
+}
+
+
+/* Artist Inspiration */
+.artist-inspiration h2 {
+	margin: 2rem 0 2rem;
+}
+
+.artist-inspiration-flex > div {
+	margin-bottom: 2rem;
+}
+
+.insp-thumbnail {
+	width: 50%;
+	max-width: 150px;
+	margin: 0 auto .5rem;
+}
+
+.insp-thumbnail img {
+	border-radius: 50%;
+}
+
+.insp-info {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.insp-info h3 {
+	margin-bottom: 0;
+}
+
+
+/*********************** HERE STARTS TABLET ARTIST INSP ***********************/
+@media screen and ( min-width: 768px ) {
+
+	/* Artist Inspiration */
+	aside.artist-inspiration-flex {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	aside.artist-inspiration > div {
+		width: 31.5%;
+	}
+
+	.insp-thumbnail {
+		width: 100%;
+		max-width: 150px;
+	}
+
+	.insp-info {
+		width: 90%;
+	}
+
+	.artist-inspiration-flex > div {
+		margin-bottom: 0;
+	}
+}
+/*********************** HERE ENDS TABLET ARTIST INSP ***********************/
+
+
+/*--------------------------------------------------------------
+R.10 Contact Page
+--------------------------------------------------------------*/
+
+main.contact-page {
+	max-width: 475px;
+	margin: 0 auto;
+}
+
+#nf-form-1-cont {
+	padding-top: 1rem;
+}
+
+.nf-form-content input,
+.nf-form-content textarea {
+	text-align: left;
+}
+
+
+/*--------------------------------------------------------------
+R.11 Gallery, Category Page
+--------------------------------------------------------------*/
+main.category-page {
+	max-width: 575px;
+	margin: 0 auto;
+}
+
+.category-page h1 {
+	margin-bottom: 0rem;
+}
+
+.category-page h2 {
+	margin-bottom: 2rem;
+}
+
+
+
+/*--------------------------------------------------------------
+R.12 Single Post
+--------------------------------------------------------------*/
+.post-landscape,
+.post-portrait {
+	text-align: left;
+	margin: 0 auto;
+	max-width: 450px;
+}
+
+.post-featured-img img {
+	max-width: 450px;
+}
+
+.single-content p:first-child,
+.artwork-details p {
+	margin-bottom: 0;
 }
 
 .artwork-details {
 	margin-bottom: 1.5rem;
 }
 
-.artwork-details p {
-	margin-bottom: 0;
+
+
+/*********************** HERE STARTS DEKSTOP SINGLE POST ***********************/
+@media screen and ( min-width: 960px ) {
+
+	.post-landscape,
+	.post-portrait {
+		margin: 0 auto;
+		max-width: 600px;
+	}
+
+	.post-landscape .post-featured-img img {
+		max-width: 600px;
+	}
+
+	.post-portrait {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-bottom: 1rem;
+	}
+
+	.post-portrait .post-featured-img {
+		max-width: 48%;
+	}
+
+	.post-portrait .post-featured-img img {
+		max-width: 100%;
+	}
+
+	.post-portrait .single-content {
+			max-width: 48%;
+	}
 }
+/*********************** HERE ENDS DEKSTOP SINGLE POST ***********************/
+
+
+
+/******** ZOOOOOOOOOM ********/
+.zoom {
+	display: inline-block;
+	position: relative;
+	height: 100%;
+}
+
+.zoom img::selection { background-color: transparent; }
+
 
 .pagination {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: space-between;
+	max-width: 400px;
+	margin: 0 auto;
 }
 
-.pagination > div {
-	background-color: #000;
-	width: 28%;
+.pagination .previous,
+.pagination .next,
+.pagination .inactive,
+.pagination .back-home {
 	transition: all .5s ease-in-out;
+	padding: .5rem;
+}
+
+.pagination .previous,
+.pagination .next,
+.pagination .inactive {
+	background-color: #000;
+	width: 48%;
+}
+
+.pagination .previous {
+	margin-right: 4%;
+}
+
+.pagination .inactive {
+	background-color: #444;
+	opacity: .7;
+	transition: none;
 }
 
 .pagination .back-home {
-	background-color: #F4851F;
-	width: 38%;
-}
-
-.pagination > div:hover {
-	opacity: .7;
+ background-color: #F4851F;
+ margin: .75rem auto 0;
+ width: 70%;
 }
 
 .pagination a {
@@ -1385,412 +1605,388 @@ main.single-post h1,
 	font-size: 1rem;
 }
 
-
-
-/*--------------------------------------------------------------
-M.8 Search Page
---------------------------------------------------------------*/
-main.search-page {
-	text-align: center;
-}
-
-
-/*--------------------------------------------------------------
-M.11 Template Parts
---------------------------------------------------------------*/
-
-/* STICKY POSTS STARTS HERE */
-.sticky-posts-bg {
-  background-color: #000;
-	color: #FFF;
-}
-
-/* RECENT POSTS STARTS HERE */
-/* Padding for wrapper only in sticky posts as well as cat-list */
-.sticky-posts-bg .wrapper,
-.cat-list .wrapper {
-	padding-top: 3rem;
-}
-
-/* RANDOM CAT FOR SEARCH STARTS HERE */
-.sticky-posts-bg h2,
-.cat-list h2,
-.random-cats h2 {
-	padding-bottom: 2rem;
-}
-
-/* SEARCH POSTS STARTS HERE */
-.the-sticky-post,
-.the-recent-post,
-.the-random-post,
-.the-searched-post {
-	display: flex;
-	flex-direction: row;
-	margin-bottom: 1rem;
-	width: 100%;
-}
-
-.the-sticky-post h3,
-.the-recent-post h3,
-.the-random-post h3,
-.the-searched-post h3 {
-	margin-bottom: .3rem;
-}
-
-.post-thumbnail,
-.random-thumbnail,
-.searched-thumbnail {
-	width: 40%;
-}
-
-.thumbnail-overlay {
-	width: 60%;
-	position: relative;
-}
-
-.sticky-content,
-.recent-content,
-.random-content,
-.searched-content {
-	padding-left: 1rem;
-	text-align: left;
-}
-
-.sticky-content .more-button a,
-.recent-content .more-button a,
-.random-content .more-button a,
-.searched-content .more-button a {
-	position: absolute;
-	bottom: 15%;
-}
-/* STICKY POSTS ENDS HERE */
-/* RECENT POSTS ENDS HERE */
-/* RANDOM CAT FOR SEARCH ENDS HERE */
-/* SEARCH POSTS ENDS HERE */
-
-
-/* CTA LINKS STARTS HERE */
-.cta-link-1,
-.cta-link-2 {
-	padding-bottom: 4rem;
-}
-
-.featured-links h3 {
-	text-align: center;
-	padding-bottom: .75rem;
-}
-
-.cta-content {
-	display: flex;
-	flex-direction: row;
-}
-
-.cta-thumbnail {
-	width: 40%;
-	height: 0;
-	padding-bottom: 40%;
-	border-radius: 50%;
-	overflow: hidden;
-}
-
-.cta-thumbnail img {
-	width: 140%;
-}
-
-.cta-info {
-	width: 60%;
-	padding-left: 1rem;
-}
-
-/* CTA LINKS ENDS HERE */
-
-
-/* CAT LIST STARTS HERE */
-.cat-list {
-	background-color: #000;
-	color: #FFF;
-}
-
-.cat-list-flex {
-  display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-
-.category {
-	position: relative;
-	overflow: hidden;
-	object-fit: cover;
-	width: 47.5%;
-	text-align: center;
-	margin-bottom: 5%;
-}
-
-.cat-thumbnail {
-	position: relative;
-	width: 100%;
-	height: 0;
-	padding-bottom: 100%;
-}
-
-.cat-thumbnail img {
-	border-radius: 50%;
-}
-
-.cat-overlay {
-	background-color: rgba(255,255,255,.3);
-	position: absolute;
-  width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	border-radius: 50%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.cat-content {
-	width: 80%;
-	position: absolute;
-	opacity: 1;
-}
-
-.cat-content h3 {
-	opacity: 1;
-	font-size: 1.125rem;
-	background-color: #000;
-	padding: .5rem .3rem;
-}
-
-.category:nth-child(2) .cat-overlay .cat-content h3 {
-	font-size: .9rem;
-}
-
-.cat-content a {
-	color: #FFF;
-}
-
-
-
-/* CAT LIST ENDS HERE */
-
-
-/*********************** HERE STARTS MOBILE LAYOUT ***********************/
-
-@media screen and ( min-width: 768px ) {
-/* Tablet Screen Size */
-
-/*--------------------------------------------------------------
-T.1 Tablet General Layout
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-T.2 Tablet Typography
---------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------
-T.3 Tablet Navigation
---------------------------------------------------------------*/
-.mob-nav-toggle {
-	display: none !important;
-}
-
-.navigation-top {
-	display: block;
-}
-
-.navigation-top ul {
-	width: 100%;
-	transform: none;
-	position: relative;
-}
-
-.main-navigation li {
-	border: 0;
-	display: inline-block;
-	position: relative;
-}
-
-
-
-/*--------------------------------------------------------------
-T.4 Tablet Header
---------------------------------------------------------------*/
-
-/* Custom Header Image */
-.site-header {
-	height: 45vh;
-}
-
-.custom-header-media img {
-	height: 45vh;
-}
-
-
-/*--------------------------------------------------------------
-T.5 Tablet Footer
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-T.6 Front Page
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-T.7 About Page
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-T.8 Contact Page
---------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------
-T.9 Blog Page, Category, Single Post
---------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------
-T.11 Template Parts
---------------------------------------------------------------*/
-
-
-} /* Here ends Media Query 768px */
-
-
-
-@media screen and ( min-width: 960px ) {
-/* Desktop Screen Size */
-/*--------------------------------------------------------------
-D.1 Desktop General Layout
---------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------
-D.2 Desktop Typography
---------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------
-D.3 Desktop Navigation
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-D.4 Desktop Header
---------------------------------------------------------------*/
-
-/* Custom Header Image */
-.custom-header {
-	height: 40vh;
-}
-
-.custom-header-media img {
-	height: 40vh;
-}
-
-
-/*--------------------------------------------------------------
-D.5 Desktop Footer
---------------------------------------------------------------*/
-
-/* Facebook Icon & footer logo hover effect */
-.facebook {
-	transition: all .5s ease-in-out;
-}
-
-.footer-logo {
-	transition: all .5s ease-in-out;
-}
-
-.facebook:hover,
-.footer-logo:hover {
+.pagination > div:hover {
 	opacity: .7;
 }
 
 
 /*--------------------------------------------------------------
-D.6 Front Page
+R.13 Template Parts
 --------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-D.7 About Page
---------------------------------------------------------------*/
+	/*--------------------------------------------------------------
+	R.13.1 Sticky Posts, Recent Posts, Searched Posts, Random Cat Posts
+	--------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-D.8 Contact Page
---------------------------------------------------------------*/
+	/* STICKY POSTS STARTS HERE */
+	.sticky-posts-bg {
+	  background-color: #000;
+		color: #FFF;
+	}
 
-/*--------------------------------------------------------------
-D.9 Blog Page, Category, Single Post
---------------------------------------------------------------*/
+	/* RECENT POSTS STARTS HERE */
+	/* Padding for wrapper only in sticky posts as well as cat-list */
+	.sticky-posts-bg .wrapper,
+	.cat-list .wrapper {
+		padding-top: 3rem;
+	}
 
-/*--------------------------------------------------------------
-D.11 Template Parts
---------------------------------------------------------------*/
+	/* RANDOM CAT FOR SEARCH STARTS HERE */
+	.sticky-posts-bg h2,
+	.main-gallery-bg h2,
+	.cat-list h2,
+	.random-cats h2 {
+		padding-bottom: 2rem;
+	}
 
-/* STICKY POSTS STARTS HERE */
-.sticky-posts {
-  display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
+	/* SEARCH POSTS STARTS HERE */
+	.the-sticky-post,
+	.the-recent-post,
+	.the-random-post,
+	.the-searched-post {
+		display: flex;
+		flex-direction: row;
+		margin-bottom: 1rem;
+		width: 100%;
+	}
 
-.the-sticky-post {
-	width: 300px;
-	height: 300px;
-	position: relative;
-	overflow: hidden;
-	object-fit: cover;
-}
+	.the-sticky-post h3,
+	.the-recent-post h3,
+	.the-random-post h3,
+	.the-searched-post h3 {
+		text-align: right;
+		margin: 1rem 0 .3rem;
+	}
 
-.post-thumbnail {
-	width: 100%;
-	position: relative;
-}
+	.post-thumbnail,
+	.random-thumbnail,
+	.searched-thumbnail {
+		width: 50%;
+	}
 
-.thumbnail-overlay {
-	position: absolute;
-  width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-  opacity: 0;
-  transition: all .5s ease-in-out;
-  background-color: #F4851F;
-}
+	.thumbnail-overlay {
+		width: 50%;
+		position: relative;
+	}
 
-.the-sticky-post:hover .thumbnail-overlay {
-  opacity: .8;
-}
+	.sticky-content,
+	.recent-content,
+	.random-content,
+	.searched-content {
+		padding-left: 1rem;
+		text-align: left;
+	}
 
-.sticky-content {
-  color: #000;
-  position: absolute;
+	.sticky-content .more-button a,
+	.recent-content .more-button a,
+	.random-content .more-button a,
+	.searched-content .more-button a {
+		position: absolute;
+		bottom: 15%;
+		right: 0;
+	}
 	/* STICKY POSTS ENDS HERE */
-}
-
-/* CAT LIST STARTS HERE */
-.cat-overlay {
-  opacity: 0;
-  transition: all .5s ease-in-out;
-}
-
-.category:hover .cat-overlay {
-  opacity: .7;
-}
+	/* RECENT POSTS ENDS HERE */
+	/* RANDOM CAT FOR SEARCH ENDS HERE */
+	/* SEARCH POSTS ENDS HERE */
 
 
+	/*********************** HERE STARTS 500px RECENT, STICKY, RANDOM ***********************/
+	@media screen and ( min-width: 500px ) {
+		/* RECENT POSTS STARTS HERE */
+		/* STICKY POSTS STARTS HERE */
+		.sticky-posts,
+		.main-gallery,
+		.random-cats-flex {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		/* SEARCH POSTS STARTS HERE */
+		.the-sticky-post,
+		.the-recent-post,
+		.the-random-post,
+		.the-searched-post {
+			display: inline;
+			width: 31.5%;
+		}
+
+		.post-thumbnail,
+		.random-thumbnail,
+		.searched-thumbnail {
+			width: 100%;
+		}
+
+		.thumbnail-overlay {
+			display: none;
+		}
+		/* STICKY POSTS ENDS HERE */
+		/* RECENT POSTS ENDS HERE */
+		/* RANDOM CAT FOR SEARCH ENDS HERE */
+		/* SEARCH POSTS ENDS HERE */
+	}
+
+	/*********************** HERE ENDS 500px RECENT, STICKY, RANDOM ***********************/
 
 
+	/*********************** HERE STARTS DEKSTOP RECENT, STICKY, RANDOM ***********************/
+	@media screen and ( min-width: 960px ) {
+
+		.the-sticky-post {
+			position: relative;
+			overflow: hidden;
+			/*object-fit: cover;*/
+		}
+
+		.the-sticky-post h3 {
+			text-align: center;
+		}
+
+		.the-sticky-post .post-thumbnail {
+			width: 100%;
+			position: relative;
+		}
+
+		.the-sticky-post .post-thumbnail a img {
+			padding-bottom: 0;
+		}
+
+		.the-sticky-post .thumbnail-overlay {
+			position: absolute;
+		  width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		  opacity: 0;
+		  transition: all .5s ease-in-out;
+		  background-color: rgba(244,133,31,0.7);
+		}
+
+		.the-sticky-post:hover .thumbnail-overlay,
+		.more-button a:hover {
+		  opacity: 1;
+		}
+
+		.the-sticky-post .sticky-content {
+		  color: #000;
+			padding: 0;
+			max-width: 70%;
+		}
+
+		.the-sticky-post .sticky-content .more-button {
+			position: absolute;
+			bottom: 25%;
+		}
+
+		.the-sticky-post .sticky-content .more-button a {
+			position: relative;
+		}
+	}
+	/*********************** HERE ENDS DEKSTOP RECENT, STICKY, RANDOM ***********************/
 
 
+	/*--------------------------------------------------------------
+	M.11.2 CTA Links
+	--------------------------------------------------------------*/
+
+	.cta-link-1,
+	.cta-link-2 {
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
+	.cta-link-1 {
+		padding-bottom: 4rem;
+	}
+
+	.cta-link-2 {
+		padding-bottom: 2.5rem;
+	}
+
+	.featured-links h3 {
+		text-align: center;
+		padding-bottom: .75rem;
+	}
+
+	.cta-content {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.cta-thumbnail {
+		width: 50%;
+		height: 0;
+		padding-bottom: 50%;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	.cta-thumbnail img {
+		width: 140%;
+	}
+
+	.cta-info {
+		width: 50%;
+		padding-left: 1rem;
+	}
+
+	.cta-info p {
+		margin: 1.75rem 0 1rem;
+	}
 
 
+	/*********************** HERE STARTS TABLET CTA LINKS ***********************/
+	@media screen and ( min-width: 768px ) {
+
+		.featured-links {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		.cta-link-1,
+		.cta-link-2 {
+			width: 40%;
+			padding-bottom: 1rem;
+		}
+
+		.cta-content {
+			display: block;
+		}
+
+		.cta-thumbnail {
+			width: 60%;
+			padding-bottom: 60%;
+			margin: 0 auto;
+		}
+
+		.cta-info {
+			width: 100%;
+			text-align: center;
+		}
+
+		.cta-info .more-button {
+			padding-top: 1rem;
+		}
+	}
+	/*********************** HERE ENDS TABLET CTA LINKS ***********************/
 
 
-} /* Here ends Media Query 960px */
+	/*--------------------------------------------------------------
+	M.11.3 Category List
+	--------------------------------------------------------------*/
+
+	.cat-list {
+		background-color: #000;
+		color: #FFF;
+	}
+
+	.cat-list-flex {
+	  display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
+	.cat-link {
+		position: relative;
+		overflow: hidden;
+		object-fit: cover;
+		width: 46%;
+		text-align: center;
+		margin-bottom: 8%;
+	}
+
+	.cat-thumbnail {
+		position: relative;
+		width: 100%;
+		height: 0;
+		padding-bottom: 100%;
+	}
+
+	.cat-thumbnail img {
+		border-radius: 50%;
+	}
+
+	.cat-overlay {
+		background-color: rgba(255,255,255,.3);
+		position: absolute;
+	  width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		border-radius: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.cat-content {
+		width: 80%;
+		position: absolute;
+		opacity: 1;
+	}
+
+	.cat-content h3 {
+		opacity: 1;
+		font-size: 1.125rem;
+		padding: .5rem .3rem;
+		background-color: #000;
+	}
+
+	.cat-content h3 a {
+		padding: .5rem .3rem;
+
+	}
+
+	.category:nth-child(2) .cat-overlay .cat-content h3 {
+		font-size: .9rem;
+	}
+
+	.cat-content a {
+		color: #FFF;
+	}
+
+
+	/*********************** HERE STARTS TABLET CAT LIST ***********************/
+	@media screen and ( min-width: 768px ) {
+
+		.cat-list h2 {
+			padding-bottom: 1rem;
+		}
+
+		.cat-list-flex {
+			max-width: 940px;
+		}
+
+		.cat-link {
+			width: 23%;
+			margin-bottom: 0;
+		}
+	}
+	/*********************** HERE ENDS TABLET CAT LIST ***********************/
+
+
+	/*********************** HERE STARTS DEKSTOP CAT LIST***********************/
+	@media screen and ( min-width: 960px ) {
+
+		.cat-overlay {
+		  opacity: 0;
+		  transition: all .5s ease-in-out;
+		}
+
+		.cat-link:hover .cat-overlay {
+		  opacity: 1;
+		}
+	}
+	/*********************** HERE ENDS DEKSTOP CAT LIST ***********************/

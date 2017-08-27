@@ -10,13 +10,23 @@
 
 <?php
 /* Link to the style sheets & fonts */
-function bb_main_style() {
+function mg_main_style() {
   wp_enqueue_style( 'main_css', get_stylesheet_uri(), array(), '1,0,0');
   wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Grand+Hotel', false);
   wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', false);
+  wp_enqueue_script( 'zoom_master', get_template_directory_uri() . '/js/jquery.zoom.js', array('jquery'), null, true );
 }
 
-add_action( 'wp_enqueue_scripts', 'bb_main_style' );
+add_action( 'wp_enqueue_scripts', 'mg_main_style' );
+
+
+
+function mg_theme_js() {
+
+
+}
+
+add_action( 'wp_enqueue_scripts', 'mg_theme_js');
 
 
 
