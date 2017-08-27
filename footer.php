@@ -24,13 +24,14 @@
     </div><!-- .footer-nav -->
 
 
-    <div class="facebook">
-      <a href="<?php echo get_option('facebook'); ?>" target="_blank"><img src="<?php site_url(); ?>/wp-content/uploads/2017/08/facebook.svg" alt="" /></a>
-    </div><!-- .facebook -->
-
     <div class="footer-logo">
       <?php if ( function_exists( 'the_custom_logo' ) ) { the_custom_logo(); } ?>
     </div><!-- .footer-logo -->
+
+
+    <div class="facebook">
+      <a href="<?php echo get_option('facebook'); ?>" target="_blank"><img src="<?php site_url(); ?>/wp-content/uploads/2017/08/facebook.svg" alt="" /></a>
+    </div><!-- .facebook -->
 
 
     <div class="site-info">

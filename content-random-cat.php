@@ -26,32 +26,34 @@ $search_post_id = get_the_ID();
 <div class="random-cats">
   <h2><a href="<?php $cat_link ?>"><?php echo $random_cat_name ?></a></h2>
 
-  <?php
-  $random_posts = new WP_Query( array(
-      'showposts'       => 3,
-      'orderby'         => 'date',
-      'post__not_in'    => array(get_option( 'sticky_posts' ), $GLOBALS[ 'search_post_id' ],  ),
-      'cat'             => $random_cat_id,
-    ));
-  if ( $random_posts -> have_posts() ) : while ( $random_posts -> have_posts() ) : $random_posts -> the_post(); ?>
+    <div class="random-cats-flex">
+      <?php
+      $random_posts = new WP_Query( array(
+          'showposts'       => 3,
+          'orderby'         => 'date',
+          'post__not_in'    => array(get_option( 'sticky_posts' ), $GLOBALS[ 'search_post_id' ],  ),
+          'cat'             => $random_cat_id,
+        ));
+      if ( $random_posts -> have_posts() ) : while ( $random_posts -> have_posts() ) : $random_posts -> the_post(); ?>
 
-  <div class="the-random-post">
+      <div class="the-random-post">
 
-		<div class="random-thumbnail">
-			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'thumbnail' ); ?>
-			</a>
-		</div><!-- .random-thumbnail -->
+    		<div class="random-thumbnail">
+    			<a href="<?php the_permalink(); ?>">
+    				<?php the_post_thumbnail( 'thumbnail' ); ?>
+    			</a>
+    		</div><!-- .random-thumbnail -->
 
-		<div class="thumbnail-overlay">
-			<div class="random-content">
-				<h3><?php the_title(); ?></h3>
-        <div class="more-button"><a href="<?php the_permalink(); ?>">Learn More</a></div>
-			</div><!-- .random-content" -->
-		</div><!-- .thumbnail-overlay -->
+    		<div class="thumbnail-overlay">
+    			<div class="random-content">
+    				<h3><?php the_title(); ?></h3>
+            <div class="more-button"><a href="<?php the_permalink(); ?>">Learn More</a></div>
+    			</div><!-- .random-content" -->
+    		</div><!-- .thumbnail-overlay -->
 
-  </div><!-- .the-random-post -->
+      </div><!-- .the-random-post -->
 
-<?php endwhile; wp_reset_query(); endif; ?>
+    <?php endwhile; wp_reset_query(); endif; ?>
 
+  </div><!-- .random-cats-flex -->
 </div><!-- .random-cats -->

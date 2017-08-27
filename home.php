@@ -1,6 +1,6 @@
 <?php
 /**
- * The front-page for our theme
+ * The blog page for our theme
  *
  * @package Meerkat Gallery
  * @since 1.0
@@ -8,58 +8,45 @@
  */
 ?>
 
-<?php get_header(); ?>
+<main class="blog-page">
 
-<div class="wrapper-bg">
-  <div class="wrapper">
+  <?php
+  $recent_posts = new WP_Query( array(
+      'posts_per_page'  => 2,
+      'orderby'         => 'date',
+      'post__not_in'    => get_option( 'sticky_posts' )
+    ));
+  if ( $recent_posts -> have_posts() ) : while ( $recent_posts -> have_posts() ) : $recent_posts -> the_post(); ?>
 
-    <main class="front-page">
+  <div class="the-recent-post">
 
-      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<div class="post-thumbnail">
+			<a href="<?php the_permalink(); ?>">
+				<?php the_post_thumbnail( 'thumbnail' ); ?>
+			</a>
+		</div><!-- .post-thumbnail -->
 
-      <?php the_title('<h1>','</h1>'); ?>
-      <?php the_content(); ?>
+		<div class="thumbnail-overlay">
+			<div class="recent-content">
+				<h3><?php the_title(); ?></h3>
+        <div class="more-button"><a href="<?php the_permalink(); ?>">Learn More</a></div>
+			</div><!-- .recent-content" -->
+		</div><!-- .thumbnail-overlay -->
 
-      <?php endwhile; endif;  ?>
+  </div><!-- .the-recent-post -->
 
-    </main>
+  <?php endwhile; wp_reset_query();
+  the_posts_pagination( array(
+    'mid_size'  => 2,
+    'prev_text' => __( 'Previous', 'textdomain' ),
+    'next_text' => __( 'Next', 'textdomain' ),
 
-    </div><!-- .wrapper - close for full black BG -->
-    <aside class="sticky-posts-bg">
-      <div class="wrapper">
-        <h2>Featured Artworks</h2>
-        <div class="sticky-posts">
-          <?php get_template_part('content', 'sticky'); ?>
-        </div><!-- .sticky-posts -->
-      </div><!-- .wrapper -->
-    </aside>
-    <div class="wrapper">
+  ) );
 
-
-    <aside class="featured-links">
-      <?php get_template_part('content', 'featured-links'); ?>
-    </aside>
-
-
-    </div><!-- .wrapper - close for full black BG -->
-    <aside class="cat-list">
-      <div class="wrapper">
-        <h2>Browse by Media</h2>
-        <div class="cat-list-flex">
-        <?php get_template_part('content', 'cat-list');  ?>
-        </div><!-- .cat-list-flex -->
-      </div><!-- .wrapper -->
-    </aside>
-    <div class="wrapper">
+endif;
 
 
-    <aside class="main-gallery">
-      <h2>My Artworks</h2>
-      <?php get_template_part('content', 'recent-posts'); ?>
-    </aside>
 
+?>
 
-  </div><!-- .wrapper -->
-</div><!-- .wrapper-bg -->
-
-<?php get_footer(); ?>
+</main>

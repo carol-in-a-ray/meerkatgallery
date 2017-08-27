@@ -53,9 +53,13 @@
     <div class="wrapper">
 
 
-    <aside class="main-gallery">
+    <aside class="main-gallery-bg">
+
+
       <h2>My Artworks</h2>
-      <?php get_template_part('content', 'recent-posts'); ?>
+      <div class="main-gallery">
+        <?php get_template_part('home'); ?>
+      </div>
     </aside>
 
 
